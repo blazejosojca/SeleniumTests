@@ -1,10 +1,7 @@
-import self as self
-from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from .locators import LoginPageLocators
-from selenium.webdriver import Firefox, Chrome
 
 
 class BasePage(object):
@@ -41,7 +38,7 @@ class BasePage(object):
 
 
 class HomePage(BasePage):
-    main_url = 'http://autodemo.testoneo.com/en/'
+    main_url = BasePage.base_url
     _home_title = 'Lost Hat'
 
 class ArtPage(BasePage):

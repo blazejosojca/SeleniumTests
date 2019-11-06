@@ -1,5 +1,7 @@
 import unittest
+
 from BaseTest import MainTest
+from testdemo_shop.helpers.functional_helper import user_login
 from testdemo_shop.locators import (LoginPageLocators,
                                     AccountPageLocators,
                                     ArticlesPageLocators,
@@ -8,7 +10,6 @@ from testdemo_shop.pages import (LoginPage,
                                  AccountPage,
                                  ArticlePage,
                                  HomePage)
-from testdemo_shop.helpers.functional_helper import user_login
 
 
 class SimpleTests(MainTest):
@@ -43,6 +44,7 @@ class SimpleTests(MainTest):
         user_login(self.driver)
         self.assert_element_text(AccountPageLocators.XPATH_ACCOUNT_HEADER, expected_header)
 
+
 class LostHatFrontPageTests(MainTest):
 
     def test_01_check_displaying_slider(self):
@@ -73,9 +75,6 @@ class LostHatFrontPageTests(MainTest):
         with self.subTest('Element width'):
             self.assertLessEqual(expected_size["width"], homepage_slider.size["width"])
 
-
-
-
         self.assertLessEqual(expected_size["height"], homepage_slider.size["height"])
         self.assertLessEqual(expected_size["width"], homepage_slider.size["width"])
 
@@ -85,7 +84,6 @@ class LostHatFrontPageTests(MainTest):
         homepage.driver.get(homepage.base_url)
         slider_elements = homepage.driver.find_elements_by_css_selector(HomePageLocators.CSS_SLIDER_ELEMENTS)
         number_of_slider_elements = (len(slider_elements))
-        #
         self.assertEqual(number_of_slides, number_of_slider_elements)
 
     def test_04_slides_have_required_title_text(self):
@@ -97,18 +95,16 @@ class LostHatFrontPageTests(MainTest):
         for slide in slides_titles:
             slide_text_lower = slide.get_attribute("textContent").lower()
             with self.subTest(slide_text_lower):
-                self.assertIn(expected_text,slide_text_lower,
+                self.assertIn(expected_text, slide_text_lower,
                               f"Slides doesn't have expected text")
 
-
-        # self.assertListEqual(required_list, slides_titles_list)
 
     def test_05_articles_required_number_on_page(self):
         homepage = HomePage(self.driver)
         homepage.driver.get(homepage.base_url)
         articles_miniatures = homepage.driver.find_elements_by_css_selector(HomePageLocators.CSS_ARTICLE_MINIATURE)
         number_of_articles_on_homepage = len(articles_miniatures)
-        self.assertEqual(number_of_articles_on_homepage, 8 )
+        self.assertEqual(number_of_articles_on_homepage, 8)
 
     def test_06_expected_test_included_in_string(self):
         expected_text = 'star'
@@ -120,7 +116,7 @@ class LostHatFrontPageTests(MainTest):
         for item in list_of_items:
             with self.subTest(item):
                 self.assertIn(expected_text, item,
-                          f'Slides does not contain expected text for page')
+                              f'Slides does not contain expected text for page')
 
 
 if __name__ == '__main__':

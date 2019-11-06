@@ -1,20 +1,9 @@
-import unittest
 from BaseTest import MainTest
-from testdemo_shop.locators import (LoginPageLocators,
-                                    AccountPageLocators,
-                                    ArticlesPageLocators,
-                                    HomePageLocators)
 from testdemo_shop.pages import (LoginPage,
-                                 AccountPage,
-                                 ArticlePage,
                                  HomePage,
                                  ArtPage,
                                  ClothesPage,
                                  AccessoriesPage)
-from testdemo_shop.helpers.functional_helper import user_login
-
-from Configuration import Config
-
 
 class SmokeTests(MainTest):
 
@@ -29,7 +18,6 @@ class SmokeTests(MainTest):
         art_page.driver.get(art_page.art_url)
         art_title = art_page.driver.title
         self.assertEqual(ArtPage._art_title, art_title)
-
 
     def test_03_title_clothes_page(self):
         clothes_page = ClothesPage(self.driver)

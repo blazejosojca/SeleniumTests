@@ -1,6 +1,5 @@
 import json
 import os
-import configparser
 from selenium.webdriver import Chrome, Firefox, Opera
 
 
@@ -10,6 +9,7 @@ CONF_FILE_PATH = os.path.join(THIS_FOLDER, CONFIG_FILE)
 DEFAULT_WAIT_TIME = 10
 SUPPORTED_BROWSERS = ['chrome', 'firefox']
 
+
 class Config(object):
 
     def config(self):
@@ -18,7 +18,7 @@ class Config(object):
         :return: dictionary with keys and values from json config file.
         """
         with open(CONF_FILE_PATH) as config_file:
-                data = json.load(config_file)
+            data = json.load(config_file)
         return data
 
     def config_browser(self):

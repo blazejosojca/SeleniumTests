@@ -21,12 +21,6 @@ class MainTest(unittest.TestCase):
                                 f'Expected message differ from {expected_text}')
 
     def assert_title(self, url, expected_text):
-        """
-
-        :param url:
-        :param expected_text:
-        :return:
-        """
         self.driver.get(url)
         actual_title = self.driver.title
         self.assertEqual(expected_text, actual_title, f'Expected {expected_text} differ from actual driver,')
