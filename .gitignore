@@ -127,3 +127,4 @@ dmypy.json
 
 
 !/testdemo_shop/geckodriver.log
+./.idea

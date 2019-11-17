@@ -2,6 +2,8 @@ import json
 import os
 from selenium.webdriver import Chrome, Firefox, Opera
 
+from testdemo_shop.Helpers.functional_helper import load_json
+
 
 CONFIG_FILE = 'config.json'
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
@@ -12,21 +14,13 @@ SUPPORTED_BROWSERS = ['chrome', 'firefox']
 
 class Config(object):
 
-    def config(self):
-        """
-        Load data from json.config and return to further reuse.
-        :return: dictionary with keys and values from json config file.
-        """
-        with open(CONF_FILE_PATH) as config_file:
-            data = json.load(config_file)
-        return data
 
     def config_browser(self):
         """
         Valid values for browser key
         :return: name of browser from data dict
         """
-        data = self.config()
+        data = load_json(CONF_FILE_PATH)
         if 'browser' not in data:
             raise Exception('The config file does not contain "browser"')
         elif data['browser'] not in SUPPORTED_BROWSERS:
@@ -38,7 +32,7 @@ class Config(object):
         Verify and valid values from wait_time key
         :return:
         """
-        data = self.config()
+        data = load_json(CONF_FILE_PATH)
         return data['wait_time'] if 'wait_time' in data else DEFAULT_WAIT_TIME
 
     def browser(self):

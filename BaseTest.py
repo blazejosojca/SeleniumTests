@@ -1,4 +1,5 @@
 import unittest
+import datetime
 
 from Configuration import Config
 
@@ -8,6 +9,8 @@ class MainTest(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         self.driver = Config().browser()
+        print("Run started at:" + str(datetime.datetime.utcnow()))
+        self.driver.maximize_window()
 
     def assert_element_text(self, xpath, expected_text):
         """
@@ -28,3 +31,6 @@ class MainTest(unittest.TestCase):
     @classmethod
     def tearDownClass(self):
         self.driver.close()
+        if (self.driver!=None):
+            print("Test environment destroyed.")
+            print("Run completed at: " + str(datetime.datetime.utcnow()))

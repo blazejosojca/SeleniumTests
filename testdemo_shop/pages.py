@@ -20,7 +20,6 @@ class BasePage(object):
 
     def find_and_click_by_xpath(self, xpath):
         element = self.driver.find_element_by_xpath(xpath)
-        element = self.driver.fin(xpath)
         element.click()
 
 
@@ -60,6 +59,7 @@ class RegisterPage(BasePage):
     TEST_SECOND_NAME = "Smith"
     TEST_EMAIL = "john.smith@mail.de"
     TEST_PASSWORD = "Password"
+    TEST_USER_NAME = "John Smith"
 
 
 class LoginPage(BasePage):
@@ -94,6 +94,9 @@ class LoginPage(BasePage):
 class AccountPage(BasePage):
     ACCOUNT_TITLE = 'Your account'
     URL = 'https://autodemo.testoneo.com/en/my-account'
+    LOGOUT_TEXT = 'Sign out'
+
+
 
 
 class ArticlePage(BasePage):
