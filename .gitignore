@@ -134,6 +134,7 @@ dmypy.json
 
 # pytest
 report.html
+/report
 
 # vscode
 .vscode/
