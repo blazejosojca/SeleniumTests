@@ -28,6 +28,11 @@ class MainTest(unittest.TestCase):
         actual_title = self.driver.title
         self.assertEqual(expected_text, actual_title, f'Expected {expected_text} differ from actual driver,')
 
+    def go_driver_give_that_page(self, driver, url, page_object):
+        tested_page = page_object(driver)
+        driver.get(url)
+        return tested_page
+
     @classmethod
     def tearDownClass(self):
         self.driver.close()

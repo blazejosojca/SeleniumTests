@@ -1,21 +1,18 @@
-import unittest
 import json
 
-from testdemo_shop.pages import LoginPage
+from testdemo_shop.Pages.login_page import LoginPage
 
 
 def user_login(driver):
     """
-    Use valid credentials email and password from class pages.LoginPage to login to account
-    Password and login are declared in LoginPage
+    Use valid credentials email and password from class pages.login_page.py to login to account
+    Password and login are declared in login_page.py
     :param driver: webdriver instance
     :return: None
     """
     login_page = LoginPage(driver)
     driver.get(login_page.login_url)
     login_page.login_with_valid_credentials()
-
-
 
 
 def load_json(path):
@@ -26,4 +23,3 @@ def load_json(path):
     with open(path) as file:
         data = json.load(file)
     return data
-

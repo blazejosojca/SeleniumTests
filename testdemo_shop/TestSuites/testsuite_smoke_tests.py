@@ -1,13 +1,13 @@
 from unittest import TestSuite, TextTestRunner, TestLoader
 from unittest.loader import makeSuite
 
-from testdemo_shop.Tests.testoneo_smoke_shop_tests import SmokeTests
+from testdemo_shop.Tests.testoneo_smoke_shop_tests import SmokePagesTests
 
 def smoke_suite():
     test_suite = TestSuite()
-    test_suite.addTest(makeSuite(SmokeTests))
+    test_suite.addTest(makeSuite(SmokePagesTests))
     return test_suite
 
 runner = TextTestRunner(verbosity=2)
-runner.run(smoke_suite)
+runner.run(smoke_suite())
 

@@ -2,14 +2,9 @@ import unittest
 
 from BaseTest import MainTest
 from testdemo_shop.Helpers.functional_helper import user_login
-from testdemo_shop.locators import (LoginPageLocators,
-                                    AccountPageLocators,
-                                    ArticlesPageLocators,
-                                    HomePageLocators)
-from testdemo_shop.pages import (LoginPage,
-                                 AccountPage,
-                                 ArticlePage,
-                                 HomePage)
+from testdemo_shop.locators import (AccountPageLocators, ArticlesPageLocators,
+                                    HomePageLocators, LoginPageLocators)
+from testdemo_shop.pages import AccountPage, ArticlePage, HomePage, LoginPage
 
 
 class PageTests(MainTest):

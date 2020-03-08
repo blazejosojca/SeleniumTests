@@ -40,7 +40,8 @@ wrapt = "==1.11.2"
 zipp = ">=0.6.0"
 six = "*"
 pytest = "*"
-allure-pytest = "*"
+pytest-html = "*"
+upgrade = "*"
 
 [requires]
 python_version = "3.6"

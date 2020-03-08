@@ -127,4 +127,16 @@ dmypy.json
 
 
 !/testdemo_shop/geckodriver.log
-./.idea
+./.idea/*
+.idea/*
+.idea/sonarlint/*
+/.idea
+
+# pytest
+report.html
+
+# vscode
+.vscode/
+
+# other
+assets/

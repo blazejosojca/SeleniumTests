@@ -1,0 +1,11 @@
+class RegisterPageLocators(object):
+    XPATH_HEADER_CREATE_ACCOUNT =''
+    XPATH_TITLE_MR = ''
+    XPATH_FIRST_NAME = ''
+    XPATH_LAST_NAME = ''
+    XPATH_EMAIL = ''
+    XPATH_PASSWORD = ''
+    XPATH_BIRTH_DATE = ''
+    XPATH_CHECKBOX_OFFERS = ''
+    XPATH_CHECKBOX_NEWSLETTER = ''
+    XPATH_SAVE_BUTTON = ''
