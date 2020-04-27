@@ -23,6 +23,18 @@ class MainTest(unittest.TestCase):
         return self.assertEqual(element.text, expected_text,
                                 f'Expected message differ from {expected_text}')
 
+    def assert_element_contains_innerText(self, selector, expected_text):
+        """
+        Compare expected text with observed value from web elements
+        :param selector: css_selector to list with elements to be observed
+        :param expected_text: text what we expecting to be found in element from the list
+        :return: assertions for every element
+        """
+        elements = self.driver.find_elements_by_css_selector(selector)
+        for element in elements:
+            return self.assertIn(element.get_attribute('innerText'), expected_text,
+                                 f'Expected message differ from {expected_text}')
+
     def assert_title(self, url, expected_text):
         self.driver.get(url)
         actual_title = self.driver.title
@@ -36,6 +48,6 @@ class MainTest(unittest.TestCase):
     @classmethod
     def tearDownClass(self):
         self.driver.close()
-        if (self.driver!=None):
+        if (self.driver != None):
             print("Test environment destroyed.")
             print("Run completed at: " + str(datetime.datetime.utcnow()))

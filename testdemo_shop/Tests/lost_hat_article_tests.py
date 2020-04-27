@@ -3,7 +3,6 @@ from BaseTest import MainTest
 from testdemo_shop.Pages import article_sub_page
 from testdemo_shop.locators import ArticlesPageLocators
 
-
 class ArticleTests(MainTest):
 
     def test_01_check_article_name(self):

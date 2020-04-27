@@ -31,6 +31,7 @@ class AccountPageLocators(object):
 
 
 class HomePageLocators(object):
+    CSS_SEARCH_ENGINE = None
     CSS_SLIDER = '#carousel.carousel'
     CSS_SLIDER_ELEMENTS = '.carousel-item'
     XPATH_SLIDES_TITLES = '//*[@id="carousel"]/ul/li//*[contains(@class, "text-uppercase")]'

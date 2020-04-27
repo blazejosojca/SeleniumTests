@@ -6,8 +6,12 @@ from testdemo_shop.Pages.accesories_page import AccessoriesPage
 from testdemo_shop.Pages.login_page import LoginPage
 from testdemo_shop.Pages.clothes_page import ClothesPage
 from testdemo_shop.Pages.art_page import ArtPage
+from testdemo_shop.Pages.contact_page import ContactPage
+from testdemo_shop.Locators.contact_page_locs import ContactPageLocators
+from testdemo_shop.Locators.home_page_locs import HomePageLocators
 
 from testdemo_shop.Helpers import operational_helpers as oh
+
 
 class SmokePagesTests(MainTest):
 
@@ -42,29 +46,30 @@ class SmokePagesTests(MainTest):
         self.assertEqual(LoginPage._login_title, login_title)
 
     def test_06_search_engine_return_list_of_products(self):
-        home_page =  HomePage(self.driver)
+        search_value = 'mug'
+        home_page = HomePage(self.driver)
         home_page.driver.get(HomePage.main_url)
-        search_field = self.driver.find_element_by_css_selector('input.ui-autocomplete-input')
-        search_field.send_keys('mug')
+        search_field = self.driver.find_element_by_css_selector(HomePageLocators.CSS_SEARCH_ENGINE)
+        search_field.send_keys(search_value)
         searching_icon = self.driver.find_element_by_css_selector('button i:nth-child(1)')
         searching_icon.click()
-        search_results_string = oh.visibility_of_element_wait(self.driver, 'css' , 'section[id=main] h2.h2')
-
-        print(search_results_string.text)
-
-
+        oh.visibility_of_element_wait(self.driver, 'css', 'section[id=main] h2.h2')
+        list_of_elements = self.driver.find_elements_by_css_selector('article.product-miniature')
+        self.assertGreater(len(list_of_elements), 0, "The list of searched elements doesn't/"
+                                                     "contains elements.")
 
     def test_07_contact_form_is_displayed(self):
-        # In development
-        pass
+        home_page = HomePage(self.driver)
+        home_page.driver.get(HomePage.main_url)
+        contact_form_link = self.driver.find_element_by_css_selector(HomePageLocators.CSS_CONTACT_FORM)
+        contact_form_link.click()
+        # in progress
 
     def test_08_modal_with_language_has_options_to_choice(self):
-        # In development
-        pass
+        raise NotImplementedError('Not implemented yet!')
 
     def test_09_subscribe_form_is_active(self):
-        # In development
-        pass
+        raise NotImplementedError('Not implemented yet!')
 
     def test_10_carousel_allows_to_swipe_elements(self):
-        pass
+        raise NotImplementedError('Not implemented yet!')

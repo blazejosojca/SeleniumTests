@@ -6,10 +6,10 @@ from testdemo_shop.locators import (LoginPageLocators,
                                     AccountPageLocators,
                                     ArticlesPageLocators,
                                     HomePageLocators)
-from testdemo_shop.pages import (LoginPage,
-                                 AccountPage,
-                                 ArticlePage,
-                                 HomePage)
+from testdemo_shop.Pages.login_page import LoginPage
+from testdemo_shop.Pages.account_page import AccountPage
+from testdemo_shop.Pages.article_sub_page import ArticleSubPage
+from testdemo_shop.Pages.home_page import HomePage
 
 
 class SimpleTests(MainTest):
