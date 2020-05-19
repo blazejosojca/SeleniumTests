@@ -141,3 +141,10 @@ report.html
 
 # other
 assets/
+screenshots_dir
+
+# drivers
+geckodriver
+geckodriver.log
+
+
