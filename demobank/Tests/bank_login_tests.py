@@ -1,5 +1,3 @@
-import time
-
 from BaseTest import MainTest
 
 from demobank.Pages.login_page import LoginPage
