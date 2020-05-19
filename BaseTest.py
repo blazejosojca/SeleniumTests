@@ -3,6 +3,9 @@ import datetime
 
 from Configuration import Config
 
+from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
+from testdemo_shop.Helpers.screenshot_listener import ScreenshotListener
+
 
 class MainTest(unittest.TestCase):
 
@@ -10,7 +13,8 @@ class MainTest(unittest.TestCase):
     def setUpClass(self):
         self.driver = Config().browser()
         print("Run started at:" + str(datetime.datetime.utcnow()))
-        self.driver.maximize_window()
+        self.ef_driver = EventFiringWebDriver(self.driver, ScreenshotListener())
+        self.ef_driver.maximize_window()
 
     def assert_element_text(self, xpath, expected_text):
         """
@@ -47,7 +51,26 @@ class MainTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(self):
-        self.driver.close()
-        if (self.driver != None):
+        self.ef_driver.close()
+        if (self.ef_driver != None):
             print("Test environment destroyed.")
             print("Run completed at: " + str(datetime.datetime.utcnow()))
+
+
+
+    """
+        @classmethod
+    def setUpClass(self):
+        self.driver = Config().browser()
+        print("Run started at:" + str(datetime.datetime.utcnow()))
+        self.ef_driver = EventFiringWebDriver(self.driver, ScreenshotListener())
+        self.ef_driver.maximize_window()
+
+        
+    @classmethod
+    def tearDownClass(self):
+        self.ef_driver.quit()
+        if self.ef_driver is not None:  
+            print("Test environment destroyed.")
+            print("Run completed at: " + str(datetime.datetime.utcnow()))
+    """
