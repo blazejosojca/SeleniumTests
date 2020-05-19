@@ -15,6 +15,7 @@ DEFAULT_WAIT_TIME = 10
 SUPPORTED_BROWSERS = ['chrome', 'firefox']
 DEFAULT_HEADLESS_OPTION = ''
 
+# rename the example.config.json to config.json
 
 class Config(object):
 
