@@ -4,12 +4,9 @@ from BaseTest import MainTest
 from testdemo_shop.Helpers.functional_helper import user_login
 from testdemo_shop.locators import (LoginPageLocators,
                                     AccountPageLocators,
-                                    ArticlesPageLocators,
-                                    HomePageLocators)
+                                    ArticlesPageLocators)
 from testdemo_shop.Pages.login_page import LoginPage
 from testdemo_shop.Pages.account_page import AccountPage
-from testdemo_shop.Pages.article_sub_page import ArticleSubPage
-from testdemo_shop.Pages.home_page import HomePage
 
 
 class SimpleTests(MainTest):

@@ -1,13 +1,9 @@
-import time
-
 from BaseTest import MainTest
 from testdemo_shop.Pages.home_page import HomePage
 from testdemo_shop.Pages.accesories_page import AccessoriesPage
 from testdemo_shop.Pages.login_page import LoginPage
 from testdemo_shop.Pages.clothes_page import ClothesPage
 from testdemo_shop.Pages.art_page import ArtPage
-from testdemo_shop.Pages.contact_page import ContactPage
-from testdemo_shop.Locators.contact_page_locs import ContactPageLocators
 from testdemo_shop.Locators.home_page_locs import HomePageLocators
 
 from testdemo_shop.Helpers import operational_helpers as oh

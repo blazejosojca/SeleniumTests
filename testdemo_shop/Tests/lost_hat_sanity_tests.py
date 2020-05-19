@@ -2,7 +2,6 @@ from BaseTest import MainTest
 from testdemo_shop.Locators.account_page_locs import AccountPageLocators
 from testdemo_shop.Locators.home_page_locs import HomePageLocators
 from testdemo_shop.Pages.home_page import HomePage
-from testdemo_shop.Pages.account_page import AccountPage
 from testdemo_shop.Pages.register_page import RegisterPage
 
 from testdemo_shop.Helpers.functional_helper import user_login

@@ -6,8 +6,8 @@ from testdemo_shop.locators import ArticlesPageLocators
 class ArticleTests(MainTest):
 
     def test_01_check_article_name(self):
-        article_page = article_sub_page.ArticleSubPage(self.driver)
-        self.driver.get(article_page.URL)
+        article_page = article_sub_page.ArticleSubPage(self.ef_driver)
+        self.ef_driver.get(article_page.URL)
         expected_name = 'HUMMINGBIRD PRINTED T-SHIRT'
         self.assert_element_text(ArticlesPageLocators.XPATH_ARTICLE_NAME, expected_name)
 
