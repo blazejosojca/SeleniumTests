@@ -11,9 +11,9 @@ class MainTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        self.driver = Config().browser()
+        driver = Config().browser()
         print("Run started at:" + str(datetime.datetime.utcnow()))
-        self.ef_driver = EventFiringWebDriver(self.driver, ScreenshotListener())
+        self.ef_driver = EventFiringWebDriver(driver, ScreenshotListener())
         self.ef_driver.maximize_window()
 
     def assert_element_text(self, xpath, expected_text):
@@ -23,7 +23,7 @@ class MainTest(unittest.TestCase):
         :param expected_text: text what we expecting to be found
         :return: None
         """
-        element = self.driver.find_element_by_xpath(xpath)
+        element = self.ef_driver.find_element_by_xpath(xpath)
         return self.assertEqual(element.text, expected_text,
                                 f'Expected message differ from {expected_text}')
 
@@ -34,14 +34,14 @@ class MainTest(unittest.TestCase):
         :param expected_text: text what we expecting to be found in element from the list
         :return: assertions for every element
         """
-        elements = self.driver.find_elements_by_css_selector(selector)
+        elements = self.ef_driver.find_elements_by_css_selector(selector)
         for element in elements:
             return self.assertIn(element.get_attribute('innerText'), expected_text,
                                  f'Expected message differ from {expected_text}')
 
     def assert_title(self, url, expected_text):
-        self.driver.get(url)
-        actual_title = self.driver.title
+        self.ef_driver.get(url)
+        actual_title = self.ef_driver.title
         self.assertEqual(expected_text, actual_title, f'Expected {expected_text} differ from actual driver,')
 
     def go_driver_give_that_page(self, driver, url, page_object):

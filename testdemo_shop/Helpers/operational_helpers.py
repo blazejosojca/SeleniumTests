@@ -51,7 +51,7 @@ def visibility_of_element_wait(driver, type, element_path, timeout=10):
     except ValueError as e:
         print(e)
     finally:
-        element_wait = WebDriverWait(driver, timeout)
         element_located = EC.visibility_of_element_located(element_locator)
-
+        # wait = WebDriverWait(driver, timeout) # using EventFiringWebDriver
+        element_wait = WebDriverWait(driver.wrapped_driver, timeout)  # using pure driver
     return element_wait.until(element_located, timeout_message)

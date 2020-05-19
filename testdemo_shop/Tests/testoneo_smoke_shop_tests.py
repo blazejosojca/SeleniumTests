@@ -12,52 +12,52 @@ from testdemo_shop.Helpers import operational_helpers as oh
 class SmokePagesTests(MainTest):
 
     def test_01_title_main_page(self):
-        homepage = HomePage(self.driver)
+        homepage = HomePage(self.ef_driver)
         homepage.driver.get(homepage.base_url)
         home_title = homepage.driver.title
         self.assertEqual(HomePage._home_title, home_title)
 
     def test_02_title_art_page(self):
-        art_page = ArtPage(self.driver)
+        art_page = ArtPage(self.ef_driver)
         art_page.driver.get(art_page.URL)
         art_title = art_page.driver.title
         self.assertEqual(ArtPage.TITLE, art_title)
 
     def test_03_title_clothes_page(self):
-        clothes_page = ClothesPage(self.driver)
+        clothes_page = ClothesPage(self.ef_driver)
         clothes_page.driver.get(clothes_page.clothes_url)
         clothes_title = clothes_page.driver.title
         self.assertEqual(ClothesPage._clothes_title, clothes_title)
 
     def test_04_title_accessories_page(self):
-        accessories = AccessoriesPage(self.driver)
+        accessories = AccessoriesPage(self.ef_driver)
         accessories.driver.get(AccessoriesPage.accessories_url)
         accessories_title = accessories.driver.title
         self.assertEqual(AccessoriesPage._accessories_title, accessories_title)
 
     def test_05_title_login_page(self):
-        login_page = LoginPage(self.driver)
+        login_page = LoginPage(self.ef_driver)
         login_page.driver.get(login_page.login_url)
         login_title = login_page.driver.title
         self.assertEqual(LoginPage._login_title, login_title)
 
     def test_06_search_engine_return_list_of_products(self):
         search_value = 'mug'
-        home_page = HomePage(self.driver)
+        home_page = HomePage(self.ef_driver)
         home_page.driver.get(HomePage.main_url)
-        search_field = self.driver.find_element_by_css_selector(HomePageLocators.CSS_SEARCH_ENGINE)
+        search_field = self.ef_driver.find_element_by_css_selector(HomePageLocators.CSS_SEARCH_ENGINE)
         search_field.send_keys(search_value)
-        searching_icon = self.driver.find_element_by_css_selector('button i:nth-child(1)')
+        searching_icon = self.ef_driver.find_element_by_css_selector('button i:nth-child(1)')
         searching_icon.click()
-        oh.visibility_of_element_wait(self.driver, 'css', 'section[id=main] h2.h2')
-        list_of_elements = self.driver.find_elements_by_css_selector('article.product-miniature')
+        oh.visibility_of_element_wait(self.ef_driver, 'css', 'section[id=main] h2.h2')
+        list_of_elements = self.ef_driver.find_elements_by_css_selector('article.product-miniature')
         self.assertGreater(len(list_of_elements), 0, "The list of searched elements doesn't/"
                                                      "contains elements.")
 
     def test_07_contact_form_is_displayed(self):
-        home_page = HomePage(self.driver)
+        home_page = HomePage(self.ef_driver)
         home_page.driver.get(HomePage.main_url)
-        contact_form_link = self.driver.find_element_by_css_selector(HomePageLocators.CSS_CONTACT_FORM)
+        contact_form_link = self.ef_driver.find_element_by_css_selector(HomePageLocators.CSS_CONTACT_FORM)
         contact_form_link.click()
         # in progress
 

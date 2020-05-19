@@ -9,8 +9,8 @@ class BasePage(object):
     """
     base_url = 'http://autodemo.testoneo.com/en/'
 
-    def __init__(self, driver):
-        self.driver = driver
+    def __init__(self, ef_driver):
+        self.driver = ef_driver
 
     def find_and_fill_by_xpath(self, xpath, value):
         element = self.driver.find_element_by_xpath(xpath)
