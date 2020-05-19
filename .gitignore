@@ -149,4 +149,6 @@ TestResults/
 geckodriver
 geckodriver.log
 
-
+# config file
+config.json
+!/config.json

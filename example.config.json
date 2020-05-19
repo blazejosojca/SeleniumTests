@@ -3,3 +3,4 @@
     "wait_time":20,
     "headless_option": ""
 }
+//rename this file to config.json - to use as config_driver_file
