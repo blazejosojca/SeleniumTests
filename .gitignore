@@ -152,3 +152,4 @@ geckodriver.log
 # config file
 config.json
 !/config.json
+!/Pipfile.lock

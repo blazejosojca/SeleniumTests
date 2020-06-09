@@ -1,39 +1,54 @@
-Package            Version   
------------------- ----------
-astroid            2.3.3     
-atomicwrites       1.3.0     
-attrs              19.3.0    
-certifi            2019.9.11 
-chardet            3.0.4     
-chromedriver       2.24.1    
-decorator          4.4.1     
-enum34             1.1.6     
-idna               2.8       
-importlib-metadata 0.23      
-isort              4.3.21    
-lazy-object-proxy  1.4.3     
-lxml               4.4.1     
-mccabe             0.6.1     
-more-itertools     7.2.0     
-namedlist          1.7       
-packaging          19.2      
-pip                19.3.1    
-pipenv             2018.11.26
-pluggy             0.13.0    
-public             2019.4.13 
-py                 1.8.0     
-pylint             2.4.3     
-pyparsing          2.4.5     
-requests           2.22.0    
-selenium           3.141.0   
-self               2019.4.13 
-setuptools         41.0.1    
-six                1.13.0    
-typed-ast          1.4.0     
-urllib3            1.25.7    
-virtualenv         16.7.7    
-virtualenv-clone   0.5.3     
-wcwidth            0.1.7     
-wheel              0.33.4    
-wrapt              1.11.2    
-zipp               0.6.0     
+appdirs==1.4.3
+astroid==2.4.1
+atomicwrites==1.3.0
+attrs==19.3.0
+CacheControl==0.12.6
+certifi==2019.11.28
+chardet==3.0.4
+chromedriver==2.24.1
+colorama==0.4.3
+contextlib2==0.6.0
+decorator==4.4.1
+distlib==0.3.0
+distro==1.4.0
+enum34==1.1.10
+filelock==3.0.12
+html5lib==1.0.1
+idna==2.8
+importlib-metadata==1.6.0
+ipaddr==2.2.0
+isort==4.3.21
+lazy-object-proxy==1.4.3
+lockfile==0.12.2
+lxml==4.5.0
+mccabe==0.6.1
+more-itertools==8.3.0
+msgpack==0.6.2
+namedlist==1.7
+packaging==20.3
+pep517==0.8.2
+pipenv==2018.11.26
+pluggy==0.13.1
+progress==1.5
+public==2019.4.13
+py==1.8.1
+pylint==2.5.2
+pyparsing==2.4.6
+pytest==5.4.2
+pytest-html==2.1.1
+pytest-metadata==1.9.0
+pytoml==0.1.21
+requests==2.22.0
+retrying==1.3.3
+selenium==3.141.0
+self==2019.4.13
+six==1.14.0
+toml==0.10.0
+typed-ast==1.4.1
+urllib3==1.25.8
+virtualenv==20.0.20
+virtualenv-clone==0.5.4
+wcwidth==0.1.9
+webencodings==0.5.1
+wrapt==1.11.2
+zipp==3.1.0

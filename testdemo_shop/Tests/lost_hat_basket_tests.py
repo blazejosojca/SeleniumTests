@@ -41,7 +41,7 @@ class BasketTests(MainTest):
         button = self.ef_driver.find_element_by_xpath(shopping_cart_btn_xpath)
         button.click()
 
-        confirmation_modal_element = oh.visibility_of_element_wait(self.ef_driver, 'xpath', confirmation_modal_title_xpath, 5)
+        confirmation_modal_element = oh.visibility_of_element_wait(self.ef_driver, 'xpath', confirmation_modal_title_xpath, 1)
 
         self.assertEqual(expected_modal_text, confirmation_modal_element.text)
         self.assertIn(expected_modal_text, confirmation_modal_element.text)

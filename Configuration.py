@@ -17,6 +17,7 @@ DEFAULT_HEADLESS_OPTION = ''
 
 # rename the example.config.json to config.json
 
+
 class Config(object):
 
     def config_browser(self):

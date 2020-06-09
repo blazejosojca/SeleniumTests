@@ -7,14 +7,18 @@ from testdemo_shop.Pages.art_page import ArtPage
 from testdemo_shop.Locators.home_page_locs import HomePageLocators
 
 from testdemo_shop.Helpers import operational_helpers as oh
-
+from testdemo_shop.Helpers.wrappers import screenshot_decorator
 
 class SmokePagesTests(MainTest):
 
+    @screenshot_decorator
     def test_01_title_main_page(self):
         homepage = HomePage(self.ef_driver)
         homepage.driver.get(homepage.base_url)
-        home_title = homepage.driver.title
+        # home_title = homepage.driver.title
+        home_title = "bum"
+        print(HomePage._home_title, home_title)
+
         self.assertEqual(HomePage._home_title, home_title)
 
     def test_02_title_art_page(self):
