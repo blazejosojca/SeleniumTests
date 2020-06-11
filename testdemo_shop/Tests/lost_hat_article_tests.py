@@ -1,10 +1,10 @@
 import unittest
-from BaseTest import MainTest
-from testdemo_shop.Pages import article_sub_page
-from testdemo_shop.locators import ArticlesPageLocators
-from testdemo_shop.Helpers.wrappers import screenshot_decorator
+from testdemo_shop.BaseTest import BaseTestClass
+from Pages import article_sub_page
+from locators import ArticlesPageLocators
+from Helpers.wrappers import screenshot_decorator
 
-class ArticleTests(MainTest):
+class ArticleTests(BaseTestClass):
 
     @screenshot_decorator
     def test_01_check_article_name(self):

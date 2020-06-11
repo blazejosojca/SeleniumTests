@@ -24,9 +24,9 @@ def wait_for_elements(driver, xpath_locator, max_wait_sec=5, number_of_elems=1,
 
         if second == (max_wait_sec - 1):
             print('End of wait')
-            assert (len(elements) > number_of_elems,\
+            assert len(elements) > number_of_elems,\
                      f"Expected {number_of_elems} elems but found {len(elements)}\
-                    for xpath {xpath_locator} in time of {max_wait_sec}s")
+                    for xpath {xpath_locator} in time of {max_wait_sec}s"
         time.sleep(1)
 
 

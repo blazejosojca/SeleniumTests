@@ -1,4 +1,4 @@
-from BaseTest import MainTest
+from testdemo_shop.BaseTest import BaseTestClass
 from testdemo_shop.Pages.home_page import HomePage
 from testdemo_shop.Pages.accesories_page import AccessoriesPage
 from testdemo_shop.Pages.login_page import LoginPage
@@ -9,24 +9,26 @@ from testdemo_shop.Locators.home_page_locs import HomePageLocators
 from testdemo_shop.Helpers import operational_helpers as oh
 from testdemo_shop.Helpers.wrappers import screenshot_decorator
 
-class SmokePagesTests(MainTest):
+class SmokePagesTests(BaseTestClass):
 
     @screenshot_decorator
     def test_01_title_main_page(self):
         homepage = HomePage(self.ef_driver)
         homepage.driver.get(homepage.base_url)
-        # home_title = homepage.driver.title
-        home_title = "bum"
+        home_title = homepage.driver.title
+        # home_title = "bum"
         print(HomePage._home_title, home_title)
 
         self.assertEqual(HomePage._home_title, home_title)
 
+    @screenshot_decorator
     def test_02_title_art_page(self):
         art_page = ArtPage(self.ef_driver)
         art_page.driver.get(art_page.URL)
         art_title = art_page.driver.title
         self.assertEqual(ArtPage.TITLE, art_title)
 
+    @screenshot_decorator
     def test_03_title_clothes_page(self):
         clothes_page = ClothesPage(self.ef_driver)
         clothes_page.driver.get(clothes_page.clothes_url)
@@ -39,12 +41,14 @@ class SmokePagesTests(MainTest):
         accessories_title = accessories.driver.title
         self.assertEqual(AccessoriesPage._accessories_title, accessories_title)
 
+    @screenshot_decorator
     def test_05_title_login_page(self):
         login_page = LoginPage(self.ef_driver)
         login_page.driver.get(login_page.login_url)
         login_title = login_page.driver.title
         self.assertEqual(LoginPage._login_title, login_title)
 
+    @screenshot_decorator
     def test_06_search_engine_return_list_of_products(self):
         search_value = 'mug'
         home_page = HomePage(self.ef_driver)
@@ -58,6 +62,7 @@ class SmokePagesTests(MainTest):
         self.assertGreater(len(list_of_elements), 0, "The list of searched elements doesn't/"
                                                      "contains elements.")
 
+    @screenshot_decorator
     def test_07_contact_form_is_displayed(self):
         home_page = HomePage(self.ef_driver)
         home_page.driver.get(HomePage.main_url)
@@ -65,11 +70,14 @@ class SmokePagesTests(MainTest):
         contact_form_link.click()
         # in progress
 
+    @screenshot_decorator
     def test_08_modal_with_language_has_options_to_choice(self):
         raise NotImplementedError('Not implemented yet!')
 
+    @screenshot_decorator
     def test_09_subscribe_form_is_active(self):
         raise NotImplementedError('Not implemented yet!')
 
+    @screenshot_decorator
     def test_10_carousel_allows_to_swipe_elements(self):
         raise NotImplementedError('Not implemented yet!')

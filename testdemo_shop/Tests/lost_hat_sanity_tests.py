@@ -1,4 +1,4 @@
-from BaseTest import MainTest
+from testdemo_shop.BaseTest import BaseTestClass
 from testdemo_shop.Locators.account_page_locs import AccountPageLocators
 from testdemo_shop.Locators.home_page_locs import HomePageLocators
 from testdemo_shop.Pages.home_page import HomePage
@@ -7,14 +7,18 @@ from testdemo_shop.Pages.register_page import RegisterPage
 from testdemo_shop.Helpers.functional_helper import user_login
 
 from testdemo_shop.Helpers import operational_helpers as oh
+from testdemo_shop.Helpers.wrappers import screenshot_decorator
 
 
-class SanityPageTests(MainTest):
 
+class SanityPageTests(BaseTestClass):
+
+    @screenshot_decorator
     def test_01_check_login_to_registered_account(self):
         user_login(self.ef_driver)
         self.assert_element_text(AccountPageLocators.XPATH_USER_NAME, RegisterPage.TEST_USER_NAME)
 
+    @screenshot_decorator
     def test_02_check_search_engine(self):
         search_value = 'hummingbird'
         home_page = HomePage(self.ef_driver)
@@ -32,6 +36,7 @@ class SanityPageTests(MainTest):
             return found_elements
         self.assertEqual(found_elements, len(list_of_elements))
 
+    @screenshot_decorator
     def test_03_check_currency_of_products(self):
         polish_currency = 'PLN'
         home_page = HomePage(self.ef_driver)

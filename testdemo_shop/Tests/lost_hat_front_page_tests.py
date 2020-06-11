@@ -1,13 +1,16 @@
 import unittest
 
-from BaseTest import MainTest
+from testdemo_shop.BaseTest import BaseTestClass
 from testdemo_shop.locators import HomePageLocators
 
 from testdemo_shop.Pages import home_page
+from testdemo_shop.Helpers.wrappers import screenshot_decorator
 
 
-class LostHatFrontPageTests(MainTest):
 
+class LostHatFrontPageTests(BaseTestClass):
+
+    @screenshot_decorator
     def test_01_check_displaying_slider(self):
         homepage = home_page.HomePage(self.ef_driver)
         homepage.driver.get(homepage.base_url)
@@ -15,6 +18,7 @@ class LostHatFrontPageTests(MainTest):
 
         self.assertTrue(homepage_slider)
 
+    @screenshot_decorator
     def test_02_slider_minimum_size(self):
         expected_size = {
             "height": "",
@@ -39,6 +43,7 @@ class LostHatFrontPageTests(MainTest):
         self.assertLessEqual(expected_size["height"], homepage_slider.size["height"])
         self.assertLessEqual(expected_size["width"], homepage_slider.size["width"])
 
+    @screenshot_decorator
     def test_03_check_slider_contains_number_of_slides(self):
         number_of_slides = 3
         homepage = home_page.HomePage(self.ef_driver)
@@ -47,6 +52,7 @@ class LostHatFrontPageTests(MainTest):
         number_of_slider_elements = (len(slider_elements))
         self.assertEqual(number_of_slides, number_of_slider_elements)
 
+    @screenshot_decorator
     def test_04_slides_have_required_title_text(self):
         homepage = home_page.HomePage(self.ef_driver)
         homepage.driver.get(homepage.base_url)
@@ -59,6 +65,7 @@ class LostHatFrontPageTests(MainTest):
                 self.assertIn(expected_text, slide_text_lower,
                               f"Slides doesn't have expected text")
 
+    @screenshot_decorator
     def test_05_articles_required_number_on_page(self):
         homepage = home_page.HomePage(self.ef_driver)
         homepage.driver.get(homepage.base_url)

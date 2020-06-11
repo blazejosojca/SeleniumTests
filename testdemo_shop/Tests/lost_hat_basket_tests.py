@@ -1,15 +1,17 @@
 import unittest
 
-from BaseTest import MainTest
+from testdemo_shop.BaseTest import BaseTestClass
 from testdemo_shop.Locators.art_page_locs import ArtPageLocators
 from testdemo_shop.Locators.art_sub_page_locs import ArtSubPageLocators
 from testdemo_shop.Pages.art_page import ArtPage
 from testdemo_shop.Pages.article_sub_page import ArticleSubPage
 from testdemo_shop.Helpers import operational_helpers as oh
+from testdemo_shop.Helpers.wrappers import screenshot_decorator
 
 
-class BasketTests(MainTest):
+class BasketTests(BaseTestClass):
 
+    @screenshot_decorator
     def test_01_check_article_name(self):
         article_page = ArticleSubPage(self.ef_driver)
         self.ef_driver.get(article_page.URL)
@@ -19,6 +21,7 @@ class BasketTests(MainTest):
 
         self.assert_element_text(article_name, expected_name)
 
+    @screenshot_decorator
     def test_02_check_article_price(self):
         article_page = ArticleSubPage(self.ef_driver)
         self.ef_driver.get(article_page.URL)
@@ -28,6 +31,7 @@ class BasketTests(MainTest):
 
         self.assert_element_text(article_price, expected_price)
 
+    @screenshot_decorator
     def test_03_product_added_to_basket(self):
         articles_page = ArtPage(self.ef_driver)
         self.ef_driver.get(articles_page.URL)
@@ -41,7 +45,8 @@ class BasketTests(MainTest):
         button = self.ef_driver.find_element_by_xpath(shopping_cart_btn_xpath)
         button.click()
 
-        confirmation_modal_element = oh.visibility_of_element_wait(self.ef_driver, 'xpath', confirmation_modal_title_xpath, 1)
+        confirmation_modal_element = oh.visibility_of_element_wait(self.ef_driver,
+                                                                   'xpath', confirmation_modal_title_xpath, 1)
 
         self.assertEqual(expected_modal_text, confirmation_modal_element.text)
         self.assertIn(expected_modal_text, confirmation_modal_element.text)
